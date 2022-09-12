@@ -42,6 +42,7 @@ void insertAtpos(node* &tail,node* &head,int pos,int d){
 
 }
 void delete_node(node* &head,node* &tail,int pos){
+  // ye case hogya agar first element remove karna hain
   if(pos == 1){
     node* temp = head;
     int value = temp->data;
@@ -50,6 +51,7 @@ void delete_node(node* &head,node* &tail,int pos){
     delete temp;
     cout<<"The memory is free for "<<value<<endl;
   }
+  // ye baaki sabke lie hain
   else{
     int cnt = 1;
     node* curr = head;
@@ -59,6 +61,7 @@ void delete_node(node* &head,node* &tail,int pos){
       curr = curr->next;
       cnt++;
     }
+    // ye case hogya agar last element remove karna hain
     if(curr->next == NULL){
       int value = curr->data;
       prev->next = NULL;
@@ -67,7 +70,10 @@ void delete_node(node* &head,node* &tail,int pos){
         cout<<"The memory is free for "<<value<<endl;
       return;
     }
+    // ye baaki ke lie
     int value = curr->data;
+    // curr mein tera element hain jo delete karna hain
+    // aur prev mein usse pehla vaala kyunki un dono ko hi change karna hain
     prev->next = curr->next;
     curr->next = NULL;
     delete curr;
