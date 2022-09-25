@@ -89,7 +89,7 @@ void print(node* head){
 }
 void reverse(node*& head,node*& tail){
   node* curr = head;
-  tail = head;
+  tail = head;// puthi karni thi na linked list
   node* prev = NULL;
   node* temp = NULL;
   while(curr != NULL){

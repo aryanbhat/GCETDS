@@ -9,7 +9,6 @@ class node{
       this->data = data;
       this->next = NULL;
   }
-
 };
 
 void insertNode(node* &tail,int key,int d){
@@ -84,12 +83,12 @@ int main(){
   insertNode(tail,10,40);
   //print(tail);
   insertNode(tail,40,50);
-  //print(tail);
+  print(tail);
   deleteNode(tail,50);
   deleteNode(tail,40);
   deleteNode(tail,30);
   deleteNode(tail,20);
-  //print(tail);
+  print(tail);
   deleteNode(tail,10);
   // print(tail);
   cout<<tail<<endl;
