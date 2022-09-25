@@ -86,6 +86,13 @@ void print(node* head){
   }
   cout<<endl;
 }
+void printTail(node* tail){
+  while(tail !=NULL){
+    cout<<tail->data<<" ";
+    tail = tail->prev;
+  }
+  cout<<endl;
+}
 int main(){
   node* node1 = new node(10);
   node* head = node1;
@@ -99,5 +106,6 @@ int main(){
   print(head);
   deleteAtPos(head,tail,3);
   print(head);
+  printTail(tail);
   return 0;
 }

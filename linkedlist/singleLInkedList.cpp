@@ -87,6 +87,19 @@ void print(node* head){
     }
     cout<<endl;
 }
+void reverse(node*& head,node*& tail){
+  node* curr = head;
+  tail = head;
+  node* prev = NULL;
+  node* temp = NULL;
+  while(curr != NULL){
+    temp = curr->next;
+    curr->next = prev;
+    prev = curr;
+    curr = temp;
+  }
+  head = prev;
+}
 int main(){
   node* node1 = new node(10);
   node* head = node1;
@@ -102,7 +115,7 @@ int main(){
   print(head);
   delete_node(head,tail,6);
   print(head);
-  cout<<head->data<<endl;
-  cout<<tail->data<<endl;
+  reverse(head,tail);
+  print(head);
   return 0;
 }
