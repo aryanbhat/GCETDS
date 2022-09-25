@@ -9,6 +9,7 @@ class node{
       this->data = data;
       this->next = NULL;
   }
+
 };
 
 void insertNode(node* &tail,int key,int d){
@@ -28,8 +29,42 @@ void insertNode(node* &tail,int key,int d){
   curr->next = n;
   }
 }
-
+void deleteNode(node* &tail,int key){
+  if(tail == NULL){
+    cout<<" The list is empty"<<endl;
+    return;
+  }
+  else{
+    node* prev = NULL;
+    node* curr = tail;
+    while(curr->data != key){
+      prev = curr;
+      curr = curr->next;
+    } 
+    if(curr == prev){
+      tail = NULL;
+    }
+    else if(curr == tail){
+      tail = prev;
+    }
+    prev->next = curr->next;
+      if(curr == prev){
+      tail = NULL;
+    }
+    else if(curr == tail){
+      tail = prev;
+    }
+    curr->next = NULL;
+    cout<<"Memory is free for "<<key<<" ";
+    cout<<endl;
+    delete(curr);
+  }
+}
 void print(node* tail){
+  if(tail == NULL){
+    cout<<"The list is empty "<<endl;
+    return;
+  }
   node* temp = tail;
     cout<<tail->data<<" ";
     while(tail->next != temp){
@@ -41,8 +76,22 @@ void print(node* tail){
 int main(){
   node* tail = NULL;
   insertNode(tail,0,10);
-  print(tail);
+  //print(tail);
   insertNode(tail,10,20);
-  print(tail);
+  //print(tail);
+  insertNode(tail,20,30);
+  //print(tail);
+  insertNode(tail,10,40);
+  //print(tail);
+  insertNode(tail,40,50);
+  //print(tail);
+  deleteNode(tail,50);
+  deleteNode(tail,40);
+  deleteNode(tail,30);
+  deleteNode(tail,20);
+  //print(tail);
+  deleteNode(tail,10);
+  // print(tail);
+  cout<<tail<<endl;
   return 0;
 }
