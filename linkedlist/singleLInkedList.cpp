@@ -80,6 +80,23 @@ void delete_node(node* &head,node* &tail,int pos){
     cout<<"The memory is free for "<<value<<endl;
   }
 }
+
+void deleteAll(node* &head,node* &tail,int val){
+  if(head->data == val){
+    node* temp = head;
+    int value = temp->data;
+    head = head->next;
+    temp->next = NULL;
+    delete temp;
+  }
+   node* curr = head;
+    node* prev = NULL;
+  if(tail->data == val){
+      prev->next = NULL;
+      tail = prev;
+      delete curr;
+  }
+}
 void print(node* head){
     while(head!=NULL){
         cout<<head->data<<" ";

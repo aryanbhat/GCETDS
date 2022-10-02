@@ -86,6 +86,16 @@ void print(node* head){
   }
   cout<<endl;
 }
+bool search(node* head,int key){
+  node* temp = head;
+  while(temp!=NULL){
+    if(temp->data == key){
+      return true;
+    }
+    temp = temp->next;
+  }
+  return false;
+}
 void printTail(node* tail){
   while(tail !=NULL){
     cout<<tail->data<<" ";
@@ -107,5 +117,11 @@ int main(){
   deleteAtPos(head,tail,3);
   print(head);
   printTail(tail);
+  if(search(head,10)){
+    cout<<"It is present!"<<endl;
+  }
+  else{
+    cout<<"It is not present"<<endl;
+  }
   return 0;
 }
